@@ -21,7 +21,6 @@
 </template>
 
 <script>
-
 import {Search} from "@element-plus/icons";
 
 export default {
@@ -41,7 +40,6 @@ export default {
       },
     }
   },
-
   mounted() {
     this.getList()
   },
@@ -58,7 +56,10 @@ export default {
           this.tableData = res.data.records
         }
       }).catch(error => {
-        console.log(error)
+        this.$message({
+          type: 'error',
+          message: error
+        })
       })
     },
     handleSizeChange(newSize) {
